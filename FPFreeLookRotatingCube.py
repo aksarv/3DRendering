@@ -51,6 +51,10 @@ class Camera:
             self.pos -= self.right * self.speed
         if keys[pygame.K_d]:
             self.pos += self.right * self.speed
+        if keys[pygame.K_SPACE] and (keys[pygame.K_LSHIFT] or keys[pygame.K_RSHIFT]):
+            self.pos += self.up * self.speed
+        if keys[pygame.K_SPACE] and not (keys[pygame.K_LSHIFT] or keys[pygame.K_RSHIFT]):
+            self.pos -= self.up * self.speed
 
     def get_view_matrix(self):
         r = self.right
